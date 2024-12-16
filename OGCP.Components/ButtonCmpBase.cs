@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace OGCP.Curriculums.BlazorServer.Components.controls;
+namespace OGCP.Components;
 public class ButtonCmpBase : ComponentBase
 {
     protected string CssClass { get; set; } = "btn-primary";
