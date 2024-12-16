@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OGCP.Curriculums.Console.Client\OGCP.Curriculums.Console.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OGCP.Curriculums.Console.Client\OGCP.Curriculums.Console.Client.csproj" />
   </ItemGroup>
 
 </Project>

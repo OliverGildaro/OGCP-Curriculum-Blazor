@@ -1,0 +1,4 @@
+﻿STATE
+Local state should be shared between children
+Parent should distribute state to children
+Chids should notify to the parent that the local state must change
