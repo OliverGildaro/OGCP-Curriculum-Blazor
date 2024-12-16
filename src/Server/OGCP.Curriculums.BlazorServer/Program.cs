@@ -1,4 +1,8 @@
+using OGCP.Curriculums.BlazorServer.Clients;
 using OGCP.Curriculums.BlazorServer.Components;
+using OGCP.Curriculums.BlazorServer.Interfaces;
+using OGCP.Curriculums.BlazorServer.Services;
+using OGCP.Curriculums.BlazorServer.Utils;
 
 namespace OGCP.Curriculums.BlazorServer
 {
@@ -11,6 +15,23 @@ namespace OGCP.Curriculums.BlazorServer
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+
+            builder.Services.AddSingleton<JsonSerializerOptionsWrapper>();
+            builder.Services.AddHttpClient("profilesAPIClient",
+                configureClient =>
+                {
+                    configureClient.BaseAddress = new Uri("https://localhost:7080");
+                    configureClient.Timeout = new TimeSpan(0, 0, 30);//Set timeout to cancel the request
+                }).ConfigurePrimaryHttpMessageHandler(() =>
+                {
+                    var handler = new SocketsHttpHandler();//Primary handler
+                    handler.AutomaticDecompression = System.Net.DecompressionMethods.GZip;
+                    handler.AllowAutoRedirect = true;//to allot redirect responses
+                    return handler;
+                });
+
+            builder.Services.AddScoped<IProfileService, ProfileService>();
+            builder.Services.AddScoped<IProfilesClient, ProfilesClient>();
 
             var app = builder.Build();
 
