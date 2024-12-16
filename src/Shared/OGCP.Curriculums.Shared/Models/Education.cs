@@ -1,4 +1,4 @@
-﻿namespace OGCP.Curriculums.BlazorServer.Models;
+﻿namespace OGCP.Curriculums.Shared.Models;
 
 public class Education
 {

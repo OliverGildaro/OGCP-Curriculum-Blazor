@@ -2,7 +2,7 @@
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
 
-namespace OGCP.Curriculums.BlazorServer.Components.Pages;
+namespace OGCP.Curriculums.Console.Components.Pages;
 public partial class Profiles
 {
     [Inject]

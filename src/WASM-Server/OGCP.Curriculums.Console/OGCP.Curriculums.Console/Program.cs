@@ -1,5 +1,6 @@
 using OGCP.Curriculums.Console.Client.Pages;
 using OGCP.Curriculums.Console.Components;
+using OGCP.Curriculums.Console.Extensions;
 
 namespace OGCP.Curriculums.Console
 {
@@ -13,7 +14,7 @@ namespace OGCP.Curriculums.Console
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents()
                 .AddInteractiveWebAssemblyComponents();
-
+            builder.Services.AddServicesToContainer();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -1,0 +1,12 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<div class="container" style="display:flex; padding-top:20px;">
+    <h4>Profiles</h4>
+    @foreach (var Current in profiles)
+    {
+        <div class="col">
+            <span>@Current.GivenName</span>
+        </div>
+    }
+</div>

@@ -1,9 +1,9 @@
-﻿using OGCP.Curriculums.BlazorServer.Interfaces;
-using OGCP.Curriculums.BlazorServer.Models;
-using OGCP.Curriculums.BlazorServer.Utils;
+﻿using OGCP.Curriculums.Shared.Interfaces;
+using OGCP.Curriculums.Shared.Models;
+using OGCP.Curriculums.Shared.Utils;
 using System.Net.Http.Headers;
 
-namespace OGCP.Curriculums.BlazorServer.Clients;
+namespace OGCP.Curriculums.Shared.Clients;
 
 public class ProfilesClient : IProfilesClient
 {

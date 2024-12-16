@@ -1,6 +1,6 @@
-﻿using OGCP.Curriculums.BlazorServer.Models;
+﻿using OGCP.Curriculums.Shared.Models;
 
-namespace OGCP.Curriculums.BlazorServer.Interfaces;
+namespace OGCP.Curriculums.Shared.Interfaces;
 public interface IProfileService
 {
     Task<IEnumerable<Profile>> GetProfilesAsync();

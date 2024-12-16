@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace OGCP.Curriculums.BlazorServer.Utils;
+namespace OGCP.Curriculums.Shared.Utils;
 public class JsonSerializerOptionsWrapper
 {
     public JsonSerializerOptionsWrapper()
