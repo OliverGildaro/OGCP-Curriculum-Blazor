@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\OGCP.Curriculums.Shared\OGCP.Curriculums.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

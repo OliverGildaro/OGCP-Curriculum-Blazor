@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.Extensions.Logging;
-using OGCP.Curriculums.BlazorServer.Interfaces;
+﻿using OGCP.Curriculums.BlazorServer.Interfaces;
 using OGCP.Curriculums.BlazorServer.Models;
 using OGCP.Curriculums.BlazorServer.Utils;
 using System.Net.Http.Headers;
-using System.Xml.Serialization;
 
 namespace OGCP.Curriculums.BlazorServer.Clients;
 

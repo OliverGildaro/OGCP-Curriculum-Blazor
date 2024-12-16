@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OGCP.Curriculums.Console.Cl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{B06724AC-0D54-432C-85C1-4005FCB0FADB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGCP.Curriculums.BlazorServer", "src\Server\OGCP.Curriculums.BlazorServer\OGCP.Curriculums.BlazorServer.csproj", "{F621CB1B-0DC8-47DF-97A4-33F80752E3B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OGCP.Curriculums.BlazorServer", "src\Server\OGCP.Curriculums.BlazorServer\OGCP.Curriculums.BlazorServer.csproj", "{F621CB1B-0DC8-47DF-97A4-33F80752E3B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{58241A16-D116-4AFF-A378-DD46433F0681}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGCP.Curriculums.Shared", "src\Shared\OGCP.Curriculums.Shared\OGCP.Curriculums.Shared.csproj", "{D8DEBD5D-A956-4A0D-9583-E34628FE4AC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,10 @@ Global
 		{F621CB1B-0DC8-47DF-97A4-33F80752E3B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F621CB1B-0DC8-47DF-97A4-33F80752E3B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F621CB1B-0DC8-47DF-97A4-33F80752E3B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DEBD5D-A956-4A0D-9583-E34628FE4AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DEBD5D-A956-4A0D-9583-E34628FE4AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DEBD5D-A956-4A0D-9583-E34628FE4AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DEBD5D-A956-4A0D-9583-E34628FE4AC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +51,8 @@ Global
 		{471A99AD-07DE-42CD-A936-1574BF7B860B} = {77E7119D-E1CA-4ED5-A43F-5A1E65EA5C67}
 		{B06724AC-0D54-432C-85C1-4005FCB0FADB} = {231C63C9-B4B8-485F-9914-3714310C20CC}
 		{F621CB1B-0DC8-47DF-97A4-33F80752E3B1} = {B06724AC-0D54-432C-85C1-4005FCB0FADB}
+		{58241A16-D116-4AFF-A378-DD46433F0681} = {231C63C9-B4B8-485F-9914-3714310C20CC}
+		{D8DEBD5D-A956-4A0D-9583-E34628FE4AC2} = {58241A16-D116-4AFF-A378-DD46433F0681}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8ECFCEDA-95E8-4882-AF2B-A82870A0F0F6}
