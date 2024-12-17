@@ -1,0 +1,16 @@
+﻿<div class="form-group">
+    <label for="@HtmlId">@Label</label>
+    <input id="@HtmlId"
+           name="@Name"
+           type="@FieldType"
+           placeholder="@Placeholder"
+           value="@Value"
+           @onchange="HandleChange"
+           class="form-control @FormClass" />
+    <div class="form-feedback">
+        <small id="answerTextFeedback"
+               class="@FeedbackClass">
+            @Feedback
+        </small>
+    </div>
+</div>

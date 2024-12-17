@@ -3,7 +3,8 @@
 namespace OGCP.Components;
 public class ButtonCmpBase : ComponentBase
 {
-    protected string CssClass { get; set; } = "btn-primary";
+    [Parameter]
+    public string CssClass { get; set; }
 
     protected void buttonHandleClick()
     {

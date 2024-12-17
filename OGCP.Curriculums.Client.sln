@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{58241A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OGCP.Curriculums.Shared", "src\Shared\OGCP.Curriculums.Shared\OGCP.Curriculums.Shared.csproj", "{D8DEBD5D-A956-4A0D-9583-E34628FE4AC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGCP.Components", "OGCP.Components\OGCP.Components.csproj", "{3E1684D3-0C54-4513-9E63-B32CC9B555DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OGCP.Components", "OGCP.Components\OGCP.Components.csproj", "{3E1684D3-0C54-4513-9E63-B32CC9B555DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
