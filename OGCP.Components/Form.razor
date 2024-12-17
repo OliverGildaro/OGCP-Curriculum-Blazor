@@ -1,0 +1,26 @@
+﻿@if (SaveError != null)
+
+{
+    <div>@SaveError.Message</div>
+}
+
+else if (CurrentStatus == Status.Completed)
+
+{
+    <div>Saved</div>
+}
+
+else
+{
+    <div>
+        <form @onsubmit="HandleSubmit">
+            @ChildContent
+            <ButtonCmp
+                HtmlId="1h1h1"
+                TypeBtn="submit"
+                Label="New btn"
+                CssClass="btn-primary" />
+            @* <button type="submit" disabled="@(CurrentStatus == Status.Submitting)">Submit</button> *@
+        </form>
+    </div>
+}

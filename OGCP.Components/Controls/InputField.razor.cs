@@ -16,6 +16,5 @@ public partial class InputField
 
     public void HandleChange(ChangeEventArgs e)
     {
-
     }
 }

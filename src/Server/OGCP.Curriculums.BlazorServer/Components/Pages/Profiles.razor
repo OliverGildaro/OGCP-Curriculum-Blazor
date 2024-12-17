@@ -23,3 +23,31 @@
     Feedback="Error here"
     FieldType="text"
     FeedbackClass="valid-feedback" />
+
+
+<Form OnSubmit="HandleCheckoutSubmit">
+    <InputField Label="etiqueta"
+                Placeholder="Name"
+                Value=""
+                FormClass="is-valid"
+                Feedback="Error here"
+                FieldType="text"
+                FeedbackClass="valid-feedback" />
+    <InputField Label="etiqueta"
+                Placeholder="Name"
+                Value=""
+                FormClass="is-valid"
+                Feedback="Error here"
+                FieldType="text"
+                FeedbackClass="valid-feedback" />
+</Form>
+
+@code {
+    private async Task HandleCheckoutSubmit(EventArgs e)
+    {
+        // Simula un proceso de envío
+        await Task.Delay(1000);
+        // Lanza una excepción para probar el manejo de errores (opcional)
+        // throw new Exception("Error al guardar los datos.");
+    }
+}
