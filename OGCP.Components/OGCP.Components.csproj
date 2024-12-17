@@ -10,10 +10,6 @@
     <None Remove="ButtonCmp.razor.css" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="ButtonCmp.razor.css" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />

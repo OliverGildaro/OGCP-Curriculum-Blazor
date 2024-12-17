@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace OGCP.Components;
+namespace OGCP.Components.Controls;
 
 public partial class InputField
 {
