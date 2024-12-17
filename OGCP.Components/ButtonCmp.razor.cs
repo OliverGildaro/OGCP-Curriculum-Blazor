@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 
 namespace OGCP.Components;
-public class ButtonCmpBase : ComponentBase
+public partial class ButtonCmp
 {
     [Parameter]
     public string CssClass { get; set; }
