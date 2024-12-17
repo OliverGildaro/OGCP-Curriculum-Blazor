@@ -27,4 +27,9 @@ public partial class Profiles
 
         this.NavigationManager.NavigateTo($"profiles/{id}");
     }
+
+    protected void HandleCreate()
+    {
+        this.NavigationManager.NavigateTo($"/createNewProfile");
+    }
 }

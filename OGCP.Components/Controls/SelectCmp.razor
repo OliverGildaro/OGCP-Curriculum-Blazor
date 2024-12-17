@@ -1,0 +1,29 @@
+﻿<div class="form-group">
+    <label for="@HtmlId" class="form-label">
+        @Label
+        @if (Required)
+        {
+            <span class="text-danger">*</span>
+        }
+    </label>
+    <select id="@HtmlId"
+            class="form-control @ControlClassName"
+            @bind="@Value"
+            @bind:event="oninput"
+            @onchange="HandleChange">
+        <option value="" disabled>@PlaceHolder</option>
+        @if (Options != null)
+        {
+            @foreach (var option in Options)
+            {
+                <option value="@option.Value">@option.Label</option>
+            }
+        }
+    </select>
+    <div class="form-feedback">
+        @if (!string.IsNullOrEmpty(Feedback))
+        {
+            <small id="answerTextFeedback" class="@FeedbackClassName">@Feedback</small>
+        }
+    </div>
+</div>

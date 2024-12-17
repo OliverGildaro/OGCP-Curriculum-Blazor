@@ -1,5 +1,6 @@
 ﻿using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
+using OGCP.Curriculums.Shared.Models.Profiles;
 
 namespace OGCP.Curriculums.Shared.Services;
 
@@ -17,6 +18,11 @@ public class ProfileService : IProfileService
     }
 
     public Task<Profile> GetProfileAsync(string eventId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateProfilesAsync(CreateProfileRequest profile)
     {
         throw new NotImplementedException();
     }

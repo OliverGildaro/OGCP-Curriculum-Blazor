@@ -1,5 +1,6 @@
 using OGCP.Curriculums.BlazorServer.Components;
 using OGCP.Curriculums.BlazorServer.Extensions;
+using OGCP.Curriculums.BlazorServer.Helpers;
 
 namespace OGCP.Curriculums.BlazorServer
 {
@@ -15,6 +16,8 @@ namespace OGCP.Curriculums.BlazorServer
             builder.Services.AddServicesToContainer();
 
             var app = builder.Build();
+
+            app.UseMiddleware<ExceptionMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

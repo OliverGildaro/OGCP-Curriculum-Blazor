@@ -1,0 +1,15 @@
+﻿@page "/createNewProfile"
+@rendermode InteractiveServer
+
+<h3>CreateProfile</h3>
+
+<SelectCmp HtmlId="exampleSelect"
+           Name="example"
+           Label="Example Select"
+           Required="true"
+           PlaceHolder="Choose an option"
+           @bind-Value="selectedValue"
+           Options="selectOptions"
+           OnValueChange="HandleValueChanged"
+           Feedback="Choose an option"
+           IsSuccess="false" />

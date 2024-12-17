@@ -1,5 +1,6 @@
 ﻿using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
+using OGCP.Curriculums.Shared.Models.Profiles;
 using OGCP.Curriculums.Shared.Utils;
 using System.Net.Http.Headers;
 
@@ -15,6 +16,11 @@ public class ProfilesClient : IProfilesClient
         this.httpClientFactory = httpClientFactory ??
             throw new ArgumentNullException(nameof(httpClientFactory));
         this.jsonSerializerOptions = jsonSerializerOptions;
+    }
+
+    public Task CreateProfilesAsync(CreateProfileRequest profile)
+    {
+        throw new NotImplementedException();
     }
 
     public async Task<Profile> GetProfileAsync(string eventId)

@@ -13,8 +13,10 @@
 <ButtonCmp
     HtmlId="1h1h1"
     TypeBtn="submit"
-    Label="New btn"
+    Label="Create new"
+    HandleClick="HandleCreate"
     CssClass="btn-primary" />
+
 <InputField
     Label="etiqueta"
     Placeholder="Name"
@@ -25,19 +27,21 @@
     FeedbackClass="valid-feedback" />
 
 
+
+
 <Form OnSubmit="HandleCheckoutSubmit">
     <InputField Label="etiqueta"
+                FieldType="text"
                 Placeholder="Name"
                 Value=""
-                FormClass="is-valid"
-                Feedback="Error here"
-                FieldType="text"
+                FormClass=""
+                Feedback=""
                 FeedbackClass="valid-feedback" />
     <InputField Label="etiqueta"
                 Placeholder="Name"
                 Value=""
-                FormClass="is-valid"
-                Feedback="Error here"
+                FormClass=""
+                Feedback=""
                 FieldType="text"
                 FeedbackClass="valid-feedback" />
 </Form>
