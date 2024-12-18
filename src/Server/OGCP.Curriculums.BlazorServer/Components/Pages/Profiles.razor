@@ -27,18 +27,19 @@
                 Label="Given Name"
                 Name="givenName"
                 Placeholder="Enter your given name"
-                @bind-Value="ProfileToCreate.GivenName"
+                Value="ProfileToCreate.GivenName"
                 FormClass="form-control"
-                FeedbackClass=""
-                Feedback="" />
+                ValueChanged = "value => ValidateField(nameof(ProfileToCreate.GivenName), value)"
+                FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.GivenName))"
+                Feedback="@Errors.GetMessage(nameof(ProfileToCreate.GivenName))" />
     <InputField HtmlId="familyNames"
                 Label="Family Names"
                 Name="familyNames"
                 Placeholder="Enter your family names"
                 @bind-Value="ProfileToCreate.FamilyNames"
                 FormClass="form-control"
-                FeedbackClass="feedback-class"
-                Feedback="Required field" />
+                FeedbackClass=""
+                Feedback="" />
 </Form>
 
 @code {

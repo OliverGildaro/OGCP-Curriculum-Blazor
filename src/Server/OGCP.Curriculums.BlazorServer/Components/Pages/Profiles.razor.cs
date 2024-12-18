@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using OGCP.Curriculums.BlazorServer.Helpers;
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
 using OGCP.Curriculums.Shared.Models.Profiles;
@@ -13,6 +14,7 @@ public partial class Profiles
     public IEnumerable<Profile> profiles { get; private set; } = Enumerable.Empty<Profile>();
 
     public CreateProfileRequest ProfileToCreate = new CreateProfileRequest();
+    public ErrorManager Errors = new ErrorManager();
     protected override async Task OnInitializedAsync()
     {
         //var profilesResult = await this.eventService.GetProfilesAsync();
@@ -33,5 +35,35 @@ public partial class Profiles
     protected void HandleCreate()
     {
         this.NavigationManager.NavigateTo($"/createNewProfile");
+    }
+
+    private void ValidateField(string propertyName, string value)
+    {
+        // Clear previous errors for the field
+        Errors.ClearError(propertyName);
+
+        // Perform validation logic based on property name
+        if (propertyName == nameof(ProfileToCreate.GivenName))
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                Errors.SetError(propertyName, "Given name is required.", "text-danger");
+            }
+            else if (value.Length > 10)
+            {
+                Errors.SetError(propertyName, "Given name cannot exceed 10 characters.", "text-danger");
+            }
+        }
+        else if (propertyName == nameof(ProfileToCreate.FamilyNames))
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                Errors.SetError(propertyName, "Family names are required.", "text-danger");
+            }
+            else if (value.Length > 10)
+            {
+                Errors.SetError(propertyName, "Family names cannot exceed 10 characters.", "text-danger");
+            }
+        }
     }
 }
