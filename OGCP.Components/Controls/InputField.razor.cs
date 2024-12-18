@@ -13,8 +13,14 @@ public partial class InputField
     [Parameter] public string FormClass { get; set; }
     [Parameter] public string FeedbackClass { get; set; }
     [Parameter] public string Feedback { get; set; }
-
-    public void HandleChange(ChangeEventArgs e)
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+    public void OnInput(string? value)
     {
+        if (value != null)
+        {
+            Value = value;
+        }
+
+        ValueChanged.InvokeAsync(Value);
     }
 }

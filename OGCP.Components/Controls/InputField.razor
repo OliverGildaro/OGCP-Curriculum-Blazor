@@ -4,8 +4,9 @@
            name="@Name"
            type="@FieldType"
            placeholder="@Placeholder"
-           value="@Value"
-           @onchange="HandleChange"
+           @bind:event="oninput"
+           @bind:get="Value"
+           @bind:set="OnInput" 
            class="form-control @FormClass" />
     <div class="form-feedback">
         <small id="answerTextFeedback"

@@ -2,7 +2,6 @@
 
 public class CreateProfileRequest
 {
-    public int Id { get; set; }
     public string GivenName { get; set; } = string.Empty;
     public string FamilyNames { get; set; } = string.Empty;
     public string Summary { get; set; } = string.Empty;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace OGCP.Components.Controls;
 public partial class ButtonCmp
@@ -15,5 +16,5 @@ public partial class ButtonCmp
     public string Label{ get; set; }
 
     [Parameter]
-    public EventCallback HandleClick { get; set; }
+    public EventCallback<MouseEventArgs> HandleClick { get; set; }
 }

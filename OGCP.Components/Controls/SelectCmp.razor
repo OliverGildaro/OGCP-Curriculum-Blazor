@@ -1,4 +1,6 @@
-﻿<div class="form-group">
+﻿@using Microsoft.AspNetCore.Components.Forms
+
+<div class="form-group">
     <label for="@HtmlId" class="form-label">
         @Label
         @if (Required)
@@ -6,20 +8,18 @@
             <span class="text-danger">*</span>
         }
     </label>
-    <select id="@HtmlId"
-            class="form-control @ControlClassName"
-            @bind="@Value"
-            @bind:event="oninput"
-            @onchange="HandleChange">
-        <option value="" disabled>@PlaceHolder</option>
+    <InputSelect id="@HtmlId" @bind-Value="@Value" class="@CssClass">
+        <option value="" disabled>@Placeholder</option>
         @if (Options != null)
+
         {
             @foreach (var option in Options)
+
             {
                 <option value="@option.Value">@option.Label</option>
             }
         }
-    </select>
+    </InputSelect>
     <div class="form-feedback">
         @if (!string.IsNullOrEmpty(Feedback))
         {

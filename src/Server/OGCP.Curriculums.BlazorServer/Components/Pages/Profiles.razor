@@ -17,33 +17,28 @@
     HandleClick="HandleCreate"
     CssClass="btn-primary" />
 
-<InputField
-    Label="etiqueta"
-    Placeholder="Name"
-    Value=""
-    FormClass="is-valid"
-    Feedback="Error here"
-    FieldType="text"
-    FeedbackClass="valid-feedback" />
-
-
-
+<p>
+    <code>GivenName</code>: @ProfileToCreate.GivenName
+    <code>FamilyName</code>: @ProfileToCreate.FamilyNames
+</p>
 
 <Form OnSubmit="HandleCheckoutSubmit">
-    <InputField Label="etiqueta"
-                FieldType="text"
-                Placeholder="Name"
-                Value=""
-                FormClass=""
-                Feedback=""
-                FeedbackClass="valid-feedback" />
-    <InputField Label="etiqueta"
-                Placeholder="Name"
-                Value=""
-                FormClass=""
-                Feedback=""
-                FieldType="text"
-                FeedbackClass="valid-feedback" />
+    <InputField HtmlId="givenName"
+                Label="Given Name"
+                Name="givenName"
+                Placeholder="Enter your given name"
+                @bind-Value="ProfileToCreate.GivenName"
+                FormClass="form-control"
+                FeedbackClass=""
+                Feedback="" />
+    <InputField HtmlId="familyNames"
+                Label="Family Names"
+                Name="familyNames"
+                Placeholder="Enter your family names"
+                @bind-Value="ProfileToCreate.FamilyNames"
+                FormClass="form-control"
+                FeedbackClass="feedback-class"
+                Feedback="Required field" />
 </Form>
 
 @code {

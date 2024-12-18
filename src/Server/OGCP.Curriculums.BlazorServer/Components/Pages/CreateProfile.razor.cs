@@ -11,18 +11,35 @@ public partial class CreateProfile
     public IProfileService ProfileService { get; set; }
     private CreateProfileRequest Event = new CreateProfileRequest();
 
-    private string selectedValue;
+    public string Value { get; set; }
 
     private List<SelectOption> selectOptions = new()
     {
-        new SelectOption { Value = ProfileRequests.CreateGeneral, Label = "General" },
-        new SelectOption { Value = ProfileRequests.CreateStudent, Label = "Student" },
-        new SelectOption { Value = ProfileRequests.CreateQualified, Label = "Qualified" },
+        new SelectOption { Value = ProfileRequests.CreateGeneral.ToString(), Label = "General" },
+        new SelectOption { Value = ProfileRequests.CreateStudent.ToString(), Label = "Student" },
+        new SelectOption { Value = ProfileRequests.CreateQualified.ToString(), Label = "Qualified" },
     };
 
-    protected void HandleValueChanged()
+    protected void OnValueChanged(string value)
     {
+        var asas = value;
+    }
 
+    //lifecycle
+    protected Task OnInitializeAsync()
+    {
+        return null;
+    }
+
+    //Fired when new values for parameter are received
+    protected Task OnParameterSetAsync()
+    {
+        return null;
+    }
+
+    protected Task OnAfterRenderAsync()
+    {
+        return null;
     }
 }
 
