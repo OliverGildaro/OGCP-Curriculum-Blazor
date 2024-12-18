@@ -39,12 +39,11 @@ public partial class Profiles
 
     private void ValidateField(string propertyName, string value)
     {
-        // Clear previous errors for the field
         Errors.ClearError(propertyName);
 
-        // Perform validation logic based on property name
         if (propertyName == nameof(ProfileToCreate.GivenName))
         {
+            ProfileToCreate.GivenName = value;
             if (string.IsNullOrWhiteSpace(value))
             {
                 Errors.SetError(propertyName, "Given name is required.", "text-danger");
@@ -56,6 +55,8 @@ public partial class Profiles
         }
         else if (propertyName == nameof(ProfileToCreate.FamilyNames))
         {
+            ProfileToCreate.FamilyNames = value;
+
             if (string.IsNullOrWhiteSpace(value))
             {
                 Errors.SetError(propertyName, "Family names are required.", "text-danger");

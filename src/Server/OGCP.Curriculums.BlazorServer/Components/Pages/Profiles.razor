@@ -27,7 +27,6 @@
                 Label="Given Name"
                 Name="givenName"
                 Placeholder="Enter your given name"
-                Value="ProfileToCreate.GivenName"
                 FormClass="form-control"
                 ValueChanged = "value => ValidateField(nameof(ProfileToCreate.GivenName), value)"
                 FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.GivenName))"
@@ -36,10 +35,10 @@
                 Label="Family Names"
                 Name="familyNames"
                 Placeholder="Enter your family names"
-                @bind-Value="ProfileToCreate.FamilyNames"
                 FormClass="form-control"
-                FeedbackClass=""
-                Feedback="" />
+                ValueChanged="value => ValidateField(nameof(ProfileToCreate.FamilyNames), value)"
+                FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.FamilyNames))"
+                Feedback="@Errors.GetMessage(nameof(ProfileToCreate.FamilyNames))" />
 </Form>
 
 @code {
