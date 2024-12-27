@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
 using OGCP.Curriculums.BlazorServer.Components;
 using OGCP.Curriculums.BlazorServer.Extensions;
 using OGCP.Curriculums.BlazorServer.Helpers;
@@ -9,10 +12,24 @@ namespace OGCP.Curriculums.BlazorServer
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+                            .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAdB2C"));
+                            //.EnableTokenAcquisitionToCallDownstreamApi()
+                            //.AddInMemoryTokenCaches();
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
+
+            // Agrega servicios adicionales de autorización
+            builder.Services.AddAuthorization(options =>
+            {
+                options.FallbackPolicy = options.DefaultPolicy;
+            });
+
+            // Agrega UI para el consentimiento
+            builder.Services.AddControllersWithViews().AddMicrosoftIdentityUI();
+
+
             builder.Services.AddServicesToContainer();
 
             var app = builder.Build();
@@ -30,8 +47,11 @@ namespace OGCP.Curriculums.BlazorServer
             app.UseHttpsRedirection();
 
             app.UseStaticFiles();
+            // Agregar middleware de autenticación y autorización
+            app.UseRouting();
             app.UseAntiforgery();
-
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.MapRazorComponents<App>()
                 .AddInteractiveServerRenderMode();
 
