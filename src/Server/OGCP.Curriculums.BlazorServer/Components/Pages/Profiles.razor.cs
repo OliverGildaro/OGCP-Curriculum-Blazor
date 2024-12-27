@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using OGCP.Components.Controls;
 using OGCP.Curriculums.BlazorServer.Helpers;
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
@@ -17,10 +18,17 @@ public partial class Profiles
     public ErrorManager Errors = new ErrorManager();
     protected override async Task OnInitializedAsync()
     {
-        //var profilesResult = await this.eventService.GetProfilesAsync();
-        //profiles = profilesResult;
+        var profilesResult = await this.eventService.GetProfilesAsync();
+        profiles = profilesResult;
         await base.OnInitializedAsync();
     }
+
+    private List<SelectOption> selectOptions = new()
+    {
+        new SelectOption { Value = ProfileRequests.CreateGeneral.ToString(), Label = "General" },
+        new SelectOption { Value = ProfileRequests.CreateStudent.ToString(), Label = "Student" },
+        new SelectOption { Value = ProfileRequests.CreateQualified.ToString(), Label = "Qualified" },
+    };
 
     public void NavigateToDetails(string id)
     {

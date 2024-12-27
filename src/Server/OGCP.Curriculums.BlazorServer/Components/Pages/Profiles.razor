@@ -22,6 +22,16 @@
     <code>FamilyName</code>: @ProfileToCreate.FamilyNames
 </p>
 
+<SelectCmp HtmlId="givenName"
+           Label="Given Name"
+           Name="givenName"
+           Placeholder="Enter your given name"
+           FormClass="form-control"
+           Options="@selectOptions"
+           ValueChanged="value => ValidateField(nameof(ProfileToCreate.GivenName), value)"
+           FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.GivenName))"
+           Feedback="@Errors.GetMessage(nameof(ProfileToCreate.GivenName))" />
+
 <Form OnSubmit="HandleCheckoutSubmit">
     <InputField HtmlId="givenName"
                 Label="Given Name"

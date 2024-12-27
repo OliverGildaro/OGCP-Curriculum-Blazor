@@ -1,4 +1,6 @@
-﻿using OGCP.Curriculums.Shared.Extensions;
+﻿using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+using OGCP.Curriculums.Shared.Extensions;
 
 namespace OGCP.Curriculums.BlazorServer.Extensions;
 public static class DIRegistrationRoot

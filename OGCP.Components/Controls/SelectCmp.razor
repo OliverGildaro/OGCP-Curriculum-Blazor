@@ -8,22 +8,26 @@
             <span class="text-danger">*</span>
         }
     </label>
-    <InputSelect id="@HtmlId" @bind-Value="@Value" class="@CssClass">
-        <option value="" disabled>@Placeholder</option>
-        @if (Options != null)
-
-        {
-            @foreach (var option in Options)
+    <select id="@HtmlId"
+            name="@Name"
+            @bind:get="Value"
+            @bind:set="OnInput"
+            class="form-control @FormClass">
+            <option value="" disabled>@Placeholder</option>
+            @if (Options != null)
 
             {
-                <option value="@option.Value">@option.Label</option>
+                @foreach (var option in Options)
+
+                {
+                    <option value="@option.Value">@option.Label</option>
+                }
             }
-        }
-    </InputSelect>
+    </select>
     <div class="form-feedback">
         @if (!string.IsNullOrEmpty(Feedback))
         {
-            <small id="answerTextFeedback" class="@FeedbackClassName">@Feedback</small>
+            <small id="answerTextFeedback" class="@FeedbackClass">@Feedback</small>
         }
     </div>
 </div>

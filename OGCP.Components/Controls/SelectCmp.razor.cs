@@ -6,20 +6,24 @@ public partial class SelectCmp
 {
     [Parameter] public string HtmlId { get; set; }
     [Parameter] public string Label { get; set; }
+    [Parameter] public string Name { get; set; }
     [Parameter] public string Placeholder { get; set; } = "Select an option";
     [Parameter] public bool Required { get; set; } = false;
     [Parameter] public string Feedback { get; set; }
-    [Parameter] public string FeedbackClassName { get; set; }
+    [Parameter] public string FeedbackClass { get; set; }
     [Parameter] public string Value { get; set; }
     [Parameter] public EventCallback<string> ValueChanged { get; set; }
     [Parameter] public List<SelectOption> Options { get; set; }
+    [Parameter] public string FormClass { get; set; }
+    public void OnInput(string? value)
+    {
+        if (value != null)
+        {
+            Value = value;
+        }
 
-    private string CssClass => $"form-control {ControlClassName}";
-
-    private string ControlClassName =>
-        !string.IsNullOrEmpty(Feedback) ? (IsSuccess ? "is-valid" : "is-invalid") : "";
-
-    [Parameter] public bool IsSuccess { get; set; }
+        ValueChanged.InvokeAsync(Value);
+    }
 }
 
 public class SelectOption
