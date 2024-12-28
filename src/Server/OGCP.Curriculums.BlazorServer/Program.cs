@@ -12,10 +12,11 @@ namespace OGCP.Curriculums.BlazorServer
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            var initialScopes = builder.Configuration["CurriculumsApi:Scopes"]?.Split(' ');
             builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                            .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAdB2C"));
-                            //.EnableTokenAcquisitionToCallDownstreamApi()
-                            //.AddInMemoryTokenCaches();
+                            .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAdB2C"))
+                            .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+                            .AddInMemoryTokenCaches();
             // Add services to the container.
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
