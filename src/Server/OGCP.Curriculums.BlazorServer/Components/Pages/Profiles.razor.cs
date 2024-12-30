@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using OGCP.Components.Controls;
+using OGCP.Curriculums.BlazorServer.Models;
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
 
@@ -12,10 +13,9 @@ public partial class Profiles
     public NavigationManager NavigationManager { get; set; }
     public IEnumerable<Profile> profiles { get; private set; } = Enumerable.Empty<Profile>();
 
-    //public CreateProfileRequest ProfileToCreate = new CreateProfileRequest();
-    //public ErrorManager Errors = new ErrorManager();
     protected override async Task OnInitializedAsync()
     {
+        //await this.SaveToken();
         var profilesResult = await this.eventService.GetProfilesAsync();
         profiles = profilesResult;
         await base.OnInitializedAsync();
@@ -43,34 +43,24 @@ public partial class Profiles
         this.NavigationManager.NavigateTo($"/createNewProfile");
     }
 
-    //private void ValidateField(string propertyName, string value)
+    //private async Task SaveToken()
     //{
-    //    Errors.ClearError(propertyName);
-
-    //    if (propertyName == nameof(ProfileToCreate.GivenName))
+    //    try
     //    {
-    //        ProfileToCreate.GivenName = value;
-    //        if (string.IsNullOrWhiteSpace(value))
+    //        var accessToken = await TokenAcquisition
+    //            .GetAccessTokenForUserAsync(new[] { "https://curriculumsogcp.onmicrosoft.com/3191a5cf-ebc6-4ae8-b6ef-ac6af990cc5b/access_as_user" });
+
+    //        var tokenData = new TokenCached
     //        {
-    //            Errors.SetError(propertyName, "Given name is required.", "text-danger");
-    //        }
-    //        else if (value.Length > 10)
-    //        {
-    //            Errors.SetError(propertyName, "Given name cannot exceed 10 characters.", "text-danger");
-    //        }
+    //            Id = Guid.NewGuid().ToString(), // Unique identifier
+    //            Token = accessToken,
+    //        };
+
+    //        await this.eventService.StoreToken(tokenData);
     //    }
-    //    else if (propertyName == nameof(ProfileToCreate.FamilyNames))
+    //    catch (Exception ex)
     //    {
-    //        ProfileToCreate.FamilyNames = value;
-
-    //        if (string.IsNullOrWhiteSpace(value))
-    //        {
-    //            Errors.SetError(propertyName, "Family names are required.", "text-danger");
-    //        }
-    //        else if (value.Length > 10)
-    //        {
-    //            Errors.SetError(propertyName, "Family names cannot exceed 10 characters.", "text-danger");
-    //        }
+    //        Console.WriteLine($"Error storing token: {ex.Message}");
     //    }
     //}
 }

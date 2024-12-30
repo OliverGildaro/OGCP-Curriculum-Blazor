@@ -1,4 +1,6 @@
-﻿using OGCP.Curriculums.Shared.Interfaces;
+﻿using OGCP.Curriculums.BlazorServer.Interfaces;
+using OGCP.Curriculums.BlazorServer.Models;
+using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
 using OGCP.Curriculums.Shared.Models.Profiles;
 
@@ -23,6 +25,11 @@ public class ProfileService : IProfileService
     }
 
     public Task CreateProfilesAsync(CreateProfileRequest profile)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task StoreToken(TokenCached token)
     {
         throw new NotImplementedException();
     }
