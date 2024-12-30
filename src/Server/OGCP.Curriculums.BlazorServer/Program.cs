@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
@@ -53,6 +54,19 @@ namespace OGCP.Curriculums.BlazorServer
             app.UseAntiforgery();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.Use(async (context, next) =>
+            {
+                if (!context.User.Identity?.IsAuthenticated ?? false)
+                {
+                    await context.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme);
+                    return;
+                }
+
+                await next();
+            });
+
+
             app.MapRazorComponents<App>()
                 .AddInteractiveServerRenderMode();
 

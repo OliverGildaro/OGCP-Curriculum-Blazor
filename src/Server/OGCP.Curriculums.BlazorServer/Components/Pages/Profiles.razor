@@ -2,7 +2,7 @@
 @rendermode InteractiveServer
 
 <div class="container" style="display:flex; padding-top:20px;">
-    <h4>Profiles</h4>
+    <h4>Profiles</h4><br />
     @foreach (var Current in profiles)
     {
         <div class="col">
@@ -17,12 +17,12 @@
     HandleClick="HandleCreate"
     CssClass="btn-primary" />
 
-<p>
+@* <p>
     <code>GivenName</code>: @ProfileToCreate.GivenName
     <code>FamilyName</code>: @ProfileToCreate.FamilyNames
-</p>
+</p> *@
 
-<SelectCmp HtmlId="givenName"
+@* <SelectCmp HtmlId="givenName"
            Label="Given Name"
            Name="givenName"
            Placeholder="Enter your given name"
@@ -30,9 +30,9 @@
            Options="@selectOptions"
            ValueChanged="value => ValidateField(nameof(ProfileToCreate.GivenName), value)"
            FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.GivenName))"
-           Feedback="@Errors.GetMessage(nameof(ProfileToCreate.GivenName))" />
+           Feedback="@Errors.GetMessage(nameof(ProfileToCreate.GivenName))" /> *@
 
-<Form OnSubmit="HandleCheckoutSubmit">
+@* <Form OnSubmit="HandleCheckoutSubmit">
     <InputField HtmlId="givenName"
                 Label="Given Name"
                 Name="givenName"
@@ -54,9 +54,6 @@
 @code {
     private async Task HandleCheckoutSubmit(EventArgs e)
     {
-        // Simula un proceso de envío
         await Task.Delay(1000);
-        // Lanza una excepción para probar el manejo de errores (opcional)
-        // throw new Exception("Error al guardar los datos.");
     }
-}
+} *@

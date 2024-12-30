@@ -13,7 +13,41 @@
            Feedback="Choose an option"
            IsSuccess="false" /> *@
 
+<SelectCmp HtmlId="givenName"
+           Label="Given Name"
+           Name="givenName"
+           Placeholder="Enter your given name"
+           FormClass="form-control"
+           Options="@selectOptions"
+           ValueChanged="value => ValidateField(nameof(ProfileToCreate.GivenName), value)"
+           FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.GivenName))"
+           Feedback="@Errors.GetMessage(nameof(ProfileToCreate.GivenName))" />
 
-<Form>
-
+<Form OnSubmit="HandleCheckoutSubmit">
+    <InputField HtmlId="givenName"
+                Label="Given Name"
+                Name="givenName"
+                Placeholder="Enter your given name"
+                FormClass="form-control"
+                ValueChanged="value => ValidateField(nameof(ProfileToCreate.GivenName), value)"
+                FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.GivenName))"
+                Feedback="@Errors.GetMessage(nameof(ProfileToCreate.GivenName))" />
+    <InputField HtmlId="familyNames"
+                Label="Family Names"
+                Name="familyNames"
+                Placeholder="Enter your family names"
+                FormClass="form-control"
+                ValueChanged="value => ValidateField(nameof(ProfileToCreate.FamilyNames), value)"
+                FeedbackClass="@Errors.GetFeedbackClass(nameof(ProfileToCreate.FamilyNames))"
+                Feedback="@Errors.GetMessage(nameof(ProfileToCreate.FamilyNames))" />
 </Form>
+
+@code {
+    private async Task HandleCheckoutSubmit(EventArgs e)
+    {
+        // Simula un proceso de envío
+        await Task.Delay(1000);
+        // Lanza una excepción para probar el manejo de errores (opcional)
+        // throw new Exception("Error al guardar los datos.");
+    }
+}

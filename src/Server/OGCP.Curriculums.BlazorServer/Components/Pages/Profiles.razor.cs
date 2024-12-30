@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using OGCP.Components.Controls;
-using OGCP.Curriculums.BlazorServer.Helpers;
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
-using OGCP.Curriculums.Shared.Models.Profiles;
 
 namespace OGCP.Curriculums.BlazorServer.Components.Pages;
 public partial class Profiles
@@ -14,8 +12,8 @@ public partial class Profiles
     public NavigationManager NavigationManager { get; set; }
     public IEnumerable<Profile> profiles { get; private set; } = Enumerable.Empty<Profile>();
 
-    public CreateProfileRequest ProfileToCreate = new CreateProfileRequest();
-    public ErrorManager Errors = new ErrorManager();
+    //public CreateProfileRequest ProfileToCreate = new CreateProfileRequest();
+    //public ErrorManager Errors = new ErrorManager();
     protected override async Task OnInitializedAsync()
     {
         var profilesResult = await this.eventService.GetProfilesAsync();
@@ -45,34 +43,34 @@ public partial class Profiles
         this.NavigationManager.NavigateTo($"/createNewProfile");
     }
 
-    private void ValidateField(string propertyName, string value)
-    {
-        Errors.ClearError(propertyName);
+    //private void ValidateField(string propertyName, string value)
+    //{
+    //    Errors.ClearError(propertyName);
 
-        if (propertyName == nameof(ProfileToCreate.GivenName))
-        {
-            ProfileToCreate.GivenName = value;
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                Errors.SetError(propertyName, "Given name is required.", "text-danger");
-            }
-            else if (value.Length > 10)
-            {
-                Errors.SetError(propertyName, "Given name cannot exceed 10 characters.", "text-danger");
-            }
-        }
-        else if (propertyName == nameof(ProfileToCreate.FamilyNames))
-        {
-            ProfileToCreate.FamilyNames = value;
+    //    if (propertyName == nameof(ProfileToCreate.GivenName))
+    //    {
+    //        ProfileToCreate.GivenName = value;
+    //        if (string.IsNullOrWhiteSpace(value))
+    //        {
+    //            Errors.SetError(propertyName, "Given name is required.", "text-danger");
+    //        }
+    //        else if (value.Length > 10)
+    //        {
+    //            Errors.SetError(propertyName, "Given name cannot exceed 10 characters.", "text-danger");
+    //        }
+    //    }
+    //    else if (propertyName == nameof(ProfileToCreate.FamilyNames))
+    //    {
+    //        ProfileToCreate.FamilyNames = value;
 
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                Errors.SetError(propertyName, "Family names are required.", "text-danger");
-            }
-            else if (value.Length > 10)
-            {
-                Errors.SetError(propertyName, "Family names cannot exceed 10 characters.", "text-danger");
-            }
-        }
-    }
+    //        if (string.IsNullOrWhiteSpace(value))
+    //        {
+    //            Errors.SetError(propertyName, "Family names are required.", "text-danger");
+    //        }
+    //        else if (value.Length > 10)
+    //        {
+    //            Errors.SetError(propertyName, "Family names cannot exceed 10 characters.", "text-danger");
+    //        }
+    //    }
+    //}
 }
