@@ -1,19 +1,13 @@
 ﻿using OGCP.Curriculums.Shared.Clients;
 using OGCP.Curriculums.Shared.Interfaces;
-using OGCP.Curriculums.Shared.Services;
 using OGCP.Curriculums.Shared.Utils;
 
 namespace OGCP.Curriculums.BlazorServer.Extensions;
-public static class DIRegistrationRoot
+
+public static class ClientsAPIMounter
 {
-    public static void AddServicesToContainer(this IServiceCollection services)
+    public static IServiceCollection SetupAPIClients(this IServiceCollection services)
     {
-        services.AddServices();
-    }
-
-    public static IServiceCollection AddServices(this IServiceCollection services)
-    {
-
         services.AddSingleton<JsonSerializerOptionsWrapper>();
         services.AddHttpClient("profilesAPIClient",
             configureClient =>
@@ -28,8 +22,8 @@ public static class DIRegistrationRoot
                 return handler;
             });
 
-        services.AddScoped<IProfileService, ProfileService>();
         services.AddScoped<IProfilesClient, ProfilesClient>();
+
         return services;
     }
 }
