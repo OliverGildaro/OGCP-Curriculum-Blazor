@@ -18,13 +18,13 @@ public class ProfilesClient : IProfilesClient
     public ProfilesClient(
         IHttpClientFactory httpClientFactory,
         JsonSerializerOptionsWrapper jsonSerializerOptions,
-        //ITokenAcquisition tokenAdquisition,
+        ITokenAcquisition tokenAdquisition,
         IConfiguration configure)
     {
         this.httpClientFactory = httpClientFactory ??
             throw new ArgumentNullException(nameof(httpClientFactory));
         this.jsonSerializerOptions = jsonSerializerOptions;
-        //this.tokenAdquisition = tokenAdquisition;
+        this.tokenAdquisition = tokenAdquisition;
         this.configure = configure;
     }
 
@@ -46,14 +46,14 @@ public class ProfilesClient : IProfilesClient
         _httpClient.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
 
-        //var scopes = configure["CurriculumsApi:Scopes"]?.Split(' ')!;
 
         //dado que implemente un cache distribuido usando cosmosDb
         //mi tokenAdquisition traera directamente el accessToken de cosmos
         //Si el token no se encuentra o ha expirado la traera de adb2c
         //tokenAdquisition sabe de donde traer la clave relacionada a la session de usuario
-        //string accessToken = await tokenAdquisition.GetAccessTokenForUserAsync(scopes);
-        //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+        var scopes = configure["CurriculumsApi:Scopes"]?.Split(' ')!;
+        string accessToken = await tokenAdquisition.GetAccessTokenForUserAsync(scopes);
+        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
         HttpResponseMessage response = null;
         try

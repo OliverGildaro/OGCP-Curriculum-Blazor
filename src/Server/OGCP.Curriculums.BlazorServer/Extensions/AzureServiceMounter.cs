@@ -49,9 +49,9 @@ public static class AzureServiceMounter
 
         //Registramos la auth con ADB2C
         Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-                        .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAdB2C"))
-                        .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
-                       .AddDistributedTokenCaches(); // Use distributed cache
+                .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAdB2C"))
+                .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
+                .AddDistributedTokenCaches(); // Use distributed cache
 
         // Agrega servicios adicionales de autorización
         Services.AddAuthorization(options =>
