@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using OGCP.Components.Controls;
-using OGCP.Curriculums.BlazorServer.Models;
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
 

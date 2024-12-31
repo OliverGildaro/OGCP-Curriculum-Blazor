@@ -1,12 +1,15 @@
 ﻿using Microsoft.Azure.Cosmos;
 using OGCP.Curriculums.BlazorServer.Interfaces;
-using OGCP.Curriculums.BlazorServer.Models;
 
 namespace OGCP.Curriculums.BlazorServer.Clients;
 
 public class CosmosClientAPI : ICosmosClientAPI
 {
     private readonly Container container;
+
+    public CosmosClientAPI()
+    {
+    }
 
     public CosmosClientAPI(
         string accountEndpoint,

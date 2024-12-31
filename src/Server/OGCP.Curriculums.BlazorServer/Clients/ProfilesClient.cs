@@ -1,9 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Identity.Web;
-using Newtonsoft.Json;
-using OGCP.Curriculums.BlazorServer.Authentication;
-using OGCP.Curriculums.BlazorServer.Clients;
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
 using OGCP.Curriculums.Shared.Models.Profiles;

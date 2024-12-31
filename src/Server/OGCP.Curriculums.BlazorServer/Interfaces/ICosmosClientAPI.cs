@@ -1,4 +1,4 @@
-﻿using OGCP.Curriculums.BlazorServer.Models;
+﻿using OGCP.Curriculums.BlazorServer.Clients;
 
 namespace OGCP.Curriculums.BlazorServer.Interfaces
 {
