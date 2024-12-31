@@ -12,7 +12,7 @@ public static class ClientsAPIMounter
         services.AddHttpClient("profilesAPIClient",
             configureClient =>
             {
-                configureClient.BaseAddress = new Uri("https://localhost:7080");
+                configureClient.BaseAddress = new Uri("https://app-cvs-southbraz-dev-001-gubrcpe9a6bhg7hp.brazilsouth-01.azurewebsites.net");
                 configureClient.Timeout = new TimeSpan(0, 0, 30);//Set timeout to cancel the request
             }).ConfigurePrimaryHttpMessageHandler(() =>
             {

@@ -13,7 +13,7 @@ public static class HostingExtensions
             builder.Services.SetupRazorComponents();
             builder.Services.SetupServices();
             builder.Services.SetupAPIClients();
-            builder.Services.SetupAzureServices(builder.Configuration);
+            //builder.Services.SetupAzureServices(builder.Configuration);
             return builder.Build();
         }
         catch (Exception ex)
@@ -37,13 +37,12 @@ public static class HostingExtensions
         }
 
         app.UseHttpsRedirection();
-        app.UseSession();
+        //app.UseSession();
         app.UseStaticFiles();
-        // Agregar middleware de autenticación y autorización
         app.UseRouting();
         app.UseAntiforgery();
-        app.UseAuthentication();
-        app.UseAuthorization();
+        //app.UseAuthentication();
+        //app.UseAuthorization();
 
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();

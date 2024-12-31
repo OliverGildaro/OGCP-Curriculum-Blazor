@@ -6,7 +6,11 @@
     @foreach (var Current in profiles)
     {
         <div class="col">
-            <span>@Current.GivenName</span>
+            <CardCmp
+                Id="@Current.Id"
+                Title="@Current.GivenName"
+                Description="@Current.Summary"
+            ></CardCmp>
         </div>
     }
 </div>
