@@ -6,14 +6,13 @@ namespace OGCP.Curriculums.BlazorServer.Extensions;
 
 public static class ClientsAPIMounter
 {
-    public static IServiceCollection SetupAPIClients(this IServiceCollection services)
+    public static IServiceCollection SetupAPIClients(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddSingleton<JsonSerializerOptionsWrapper>();
         services.AddHttpClient("profilesAPIClient",
             configureClient =>
             {
-                //configureClient.BaseAddress = new Uri("https://app-cvs-southbraz-dev-001-gubrcpe9a6bhg7hp.brazilsouth-01.azurewebsites.net");
-                configureClient.BaseAddress = new Uri("https://localhost:7080");
+                configureClient.BaseAddress = new Uri(configuration["CurriculumsApi:endpoint"]);
                 configureClient.Timeout = new TimeSpan(0, 0, 30);//Set timeout to cancel the request
             }).ConfigurePrimaryHttpMessageHandler(() =>
             {

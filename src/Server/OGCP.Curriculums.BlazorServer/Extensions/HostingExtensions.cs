@@ -12,7 +12,7 @@ public static class HostingExtensions
         {
             builder.Services.SetupRazorComponents();
             builder.Services.SetupServices();
-            builder.Services.SetupAPIClients();
+            builder.Services.SetupAPIClients(builder.Configuration);
             builder.Services.SetupAzureServices(builder.Configuration);
             return builder.Build();
         }
