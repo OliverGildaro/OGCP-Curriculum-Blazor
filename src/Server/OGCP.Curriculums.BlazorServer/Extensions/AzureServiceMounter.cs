@@ -2,8 +2,11 @@
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Fluent;
 using Microsoft.Extensions.Caching.Cosmos;
+using Microsoft.Extensions.Logging.ApplicationInsights;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using OGCP.Curriculums.BlazorServer.Interfaces;
+using OGCP.Curriculums.BlazorServer.Services;
 
 namespace OGCP.Curriculums.BlazorServer.Extensions;
 
@@ -62,6 +65,9 @@ public static class AzureServiceMounter
         // Agrega UI para el consentimiento
         Services.AddControllersWithViews()
             .AddMicrosoftIdentityUI();
+
+        Services.AddApplicationInsightsTelemetry();
+        Services.AddScoped<IApplicationInsights, ApplicationInsights>();
     }
 
     private static void captureDiagnostics(CosmosDiagnostics diagnostics)

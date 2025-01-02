@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Identity.Web;
+using OGCP.Curriculums.BlazorServer.Interfaces;
 using OGCP.Curriculums.Shared.Interfaces;
 using OGCP.Curriculums.Shared.Models;
 using OGCP.Curriculums.Shared.Models.Profiles;
@@ -14,18 +15,21 @@ public class ProfilesClient : IProfilesClient
     private readonly JsonSerializerOptionsWrapper jsonSerializerOptions;
     private readonly ITokenAcquisition tokenAdquisition;
     private readonly IConfiguration configure;
+    private readonly IApplicationInsights insights;
 
     public ProfilesClient(
         IHttpClientFactory httpClientFactory,
         JsonSerializerOptionsWrapper jsonSerializerOptions,
         ITokenAcquisition tokenAdquisition,
-        IConfiguration configure)
+        IConfiguration configure,
+        IApplicationInsights insights)
     {
         this.httpClientFactory = httpClientFactory ??
             throw new ArgumentNullException(nameof(httpClientFactory));
         this.jsonSerializerOptions = jsonSerializerOptions;
         this.tokenAdquisition = tokenAdquisition;
         this.configure = configure;
+        this.insights = insights;
     }
 
     public Task CreateProfilesAsync(CreateProfileRequest profile)
@@ -58,11 +62,15 @@ public class ProfilesClient : IProfilesClient
         HttpResponseMessage response = null;
         try
         {
+            insights.LogInformation("MY_TRACKINGS: Ready to bring profiles from API");
             response = await _httpClient.GetAsync("api/v1/profiles");
+            insights.LogInformation("MY_TRACKINGS: Success REQUEST");
         }
         catch (Exception ex)
         {
-            throw;
+            insights.LogInformation("MY_TRACKINGS: Exception was catched in sql execution");
+            insights.LogInformation(string.Format("MY_TRACKINGS message: {0}", ex.Message));
+            insights.LogInformation(string.Format("MY_TRACKINGS stack trace: {0}", ex.StackTrace));
         }
 
         response.EnsureSuccessStatusCode();
