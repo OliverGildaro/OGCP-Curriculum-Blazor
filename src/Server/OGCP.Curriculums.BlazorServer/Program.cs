@@ -8,6 +8,8 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        ILogger logger = null;
+
         try
         {
             string appInsightsCS = builder.Configuration["ApplicationInsights:ConnectionString"];
@@ -19,20 +21,22 @@ public class Program
 
             builder.Logging.AddFilter<ApplicationInsightsLoggerProvider>(null, LogLevel.Trace);
 
-            builder
+
+            var app = builder
                 .ConfigureServices()
-                .ConfigurePipeline()
-                .Run();
+                .ConfigurePipeline();
+
+            var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
+            logger = loggerFactory.CreateLogger("OGCP");
+
+            app.Run();
+            logger.LogInformation("MY_TRACKINGS: Start running blazor application");
+
         }
         catch (Exception)
         {
 
             throw;
         }
-
-
-
-
-        var app = builder.Build();
     }
 }
