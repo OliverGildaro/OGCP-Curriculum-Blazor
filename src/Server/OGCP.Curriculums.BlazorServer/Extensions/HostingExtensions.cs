@@ -41,8 +41,8 @@ public static class HostingExtensions
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAntiforgery();
-        app.UseAuthentication();
-        app.UseAuthorization();
+        //app.UseAuthentication();
+        //app.UseAuthorization();
 
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();

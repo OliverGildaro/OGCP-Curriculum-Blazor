@@ -65,7 +65,7 @@ public class ProfilesClient : IProfilesClient
             insights.LogInformation("MY_TRACKINGS: Ready to bring profiles from API");
             response = await _httpClient.GetAsync("api/v1/profiles");
             insights.LogInformation("MY_TRACKINGS: Success REQUEST");
-        }
+        }   
         catch (Exception ex)
         {
             insights.LogInformation("MY_TRACKINGS: Exception was catched in sql execution");
